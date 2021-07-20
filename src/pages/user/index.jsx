@@ -4,10 +4,6 @@ import './index.less'
 
 export default class Index extends Component {
 
-  state = {
-    userdata:{}
-  }
-
   componentWillMount () { }
 
   componentDidMount () { }
@@ -21,7 +17,7 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
-        <Text>首页</Text>
+        <Text>我的</Text>
       </View>
     )
   }
