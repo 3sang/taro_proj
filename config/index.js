@@ -1,24 +1,34 @@
 const config = {
+  // 项目名称
   projectName: 'mydemo',
-  date: '2021-6-30',
+  // 项目创建日期
+  date: '2021-6-2',
+  // 设计稿尺寸
   designWidth: 750,
+  // 设计稿尺寸换算规则
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
     828: 1.81 / 2
   },
+  // 项目源码目录
   sourceRoot: 'src',
+  // 项目产出目录
   outputRoot: 'dist',
+  // Taro 插件配置
   plugins: [],
-  defineConstants: {
-  },
+  // 全局变量设置
+  defineConstants: {},
+  // 文件 copy 配置
   copy: {
     patterns: [
     ],
     options: {
     }
   },
+  // 框架，react，nerv，vue, vue3 等
   framework: 'react',
+  // 小程序端专用配置
   mini: {
     postcss: {
       pxtransform: {
@@ -27,10 +37,11 @@ const config = {
 
         }
       },
+      // 小程序端样式引用本地资源内联配置
       url: {
         enable: true,
         config: {
-          limit: 1024 // 设定转换尺寸上限
+          limit: 10240  // 设定转换尺寸上限
         }
       },
       cssModules: {
@@ -40,8 +51,11 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    }
+    },
+    // 自定义 Webpack 配置
+    webpackChain (chain, webpack) {}
   },
+  // H5 端专用配置
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
@@ -58,9 +72,12 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    }
+    },
+    // 自定义 Webpack 配置
+    webpackChain (chain, webpack) {},
+    devServer: {}
   }
-}
+};
 
 module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {

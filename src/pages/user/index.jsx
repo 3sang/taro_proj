@@ -4,15 +4,27 @@ import './index.less'
 
 export default class Index extends Component {
 
-  componentWillMount () { }
+  // 可以使用所有的 React 生命周期方法
+  componentDidMount () {}
 
-  componentDidMount () { }
+  // onLoad
+  onLoad () {}
 
-  componentWillUnmount () { }
+  // onReady
+  onReady () {}
 
-  componentDidShow () { }
+  // 对应 onShow
+  componentDidShow () {}
 
-  componentDidHide () { }
+  // 对应 onHide
+  componentDidHide () {}
+
+  // 对应 onPullDownRefresh，除了 componentDidShow/componentDidHide 之外，
+  // 所有页面生命周期函数名都与小程序相对应
+  onPullDownRefresh () {}
+
+  // 触底事件
+  onReachBottom (){}
 
   render () {
     return (
