@@ -1,9 +1,16 @@
+import Taro from '@tarojs/taro'
 import { Component } from 'react'
 import './app.less'
 
 class App extends Component {
 
-  componentDidMount () {}
+  componentDidMount () {
+    // Taro.login({
+    //   success: function (res) {
+    //     console.log(res)
+    //   }
+    // })
+  }
 
   // 项目启动显示的时候触发
   componentDidShow () {}

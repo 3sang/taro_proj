@@ -1,6 +1,6 @@
 import { Component } from 'react'
-import { View, Text } from '@tarojs/components'
-import './index.less'
+import { View, Text,Swiper,SwiperItem } from '@tarojs/components'
+import styles from './index.module.less'
 
 export default class Index extends Component {
 
@@ -20,7 +20,7 @@ export default class Index extends Component {
 
   render () {
     return (
-      <View className='index'>
+      <View className={styles.index}>
         <Text>首页</Text>
       </View>
     )
