@@ -16,18 +16,18 @@ export default {
     list:[{
       pagePath:'pages/index/index',
       text:'首页',
-      iconPath:'./static/images/home.png',
-      selectedIconPath:'./static/images/home_ac.png'
+      iconPath:'./static/images/icon/home.png',
+      selectedIconPath:'./static/images/icon/home_ac.png'
     },{
       pagePath:'pages/order/index',
       text:'订单',
-      iconPath:'./static/images/layout.png',
-      selectedIconPath:'./static/images/layout_ac.png'
+      iconPath:'./static/images/icon/layout.png',
+      selectedIconPath:'./static/images/icon/layout_ac.png'
     },{
       pagePath:'pages/user/index',
       text:'我的',
-      iconPath:'./static/images/user.png',
-      selectedIconPath:'./static/images/user_ac.png'
+      iconPath:'./static/images/icon/user.png',
+      selectedIconPath:'./static/images/icon/user_ac.png'
     }]
   }
 }

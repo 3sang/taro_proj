@@ -14,13 +14,6 @@
  })
  
  exports.db = connection;
-
-
-//  host: 'localhost',
-//  user: 'DX',
-//  password: '1285480439l',
-//  port: '3306',
-//  database: 'uni-programe'
  
  // connection.connect();
  // const sql = "select * from user"; // 执行查询语句
