@@ -1,6 +1,5 @@
 import Taro from '@tarojs/taro'
-import {View} from '@tarojs/components'
-import { Provider } from '@tarojs/mobx'
+import { Provider } from 'mobx-react'
 import { Component } from 'react'
 import store from './store'
 import './app.less'
@@ -26,7 +25,7 @@ class App extends Component {
   // this.props.children 是将要会渲染的页面
   render () {
     return (
-      <Provider store={store}>
+      <Provider {...store}>
         {this.props.children}
       </Provider>
     )
