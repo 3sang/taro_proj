@@ -1,7 +1,8 @@
 import Taro,{getCurrentInstance} from '@tarojs/taro'
 import { Component } from 'react'
-import { View, Text,Image,Swiper,SwiperItem } from '@tarojs/components'
+import { View, Text,Image,Swiper,SwiperItem, ScrollView } from '@tarojs/components'
 import {inject, observer} from "mobx-react";
+import CampaignItem from './components/CampaignItem'
 import styles from './index.module.less'
 import swiper1 from '../../static/images/swiper/1.jpeg'
 import swiper2 from '../../static/images/swiper/2.jpeg'
@@ -13,7 +14,18 @@ import swiper4 from '../../static/images/swiper/4.jpeg'
 export default class Index extends Component {
 
   state = {
-    userdata:{}
+    userdata:{},
+    campainList:[{
+      name:'aaa',
+      beginTime:'1631696400000',
+      endTime:'1632380400000',
+      enterNumber:200,
+      description:'dssdad',
+      fee:'12',
+      cover:swiper1
+    }],
+    page:1,
+    size:10,
   }
 
   componentWillMount () { }
@@ -31,12 +43,36 @@ export default class Index extends Component {
 
   componentDidHide () { }
 
+
+  // 分页获取campaignList数据
+  getCampaignList(params){
+    const {page,size,campainList} = this.state
+    const {campaignStore} = this.props;
+    campaignStore.getCampaignList({
+      page,size
+    }).then(res=>{
+      const {data=[{
+        name:'aaa',
+        beginTime:'1631696400000',
+        endTime:'1632380400000',
+        enterNumber:200,
+        description:'dssdad',
+        fee:'12',
+        cover:swiper1
+      }]} = res
+      this.setState({
+        campainList: page === 1 ? data.data : [...campainList,...data.data]
+      })
+    })
+  }
+
   render () {
+    const { campainList=[] } = this.state
     return (
       <View className={styles.index}>
         <Swiper
           className={styles.swiper}
-          indicatorColor='#999'
+          indicatorColor='#fff'
           indicatorActiveColor='#47b8e0'
           circular
           indicatorDots
@@ -46,6 +82,11 @@ export default class Index extends Component {
             <SwiperItem><Image src={swiper3} /></SwiperItem>
             <SwiperItem><Image src={swiper4} /></SwiperItem>
         </Swiper>
+        <ScrollView>
+          {
+            campainList.map(item=><CampaignItem data={item} />)
+          }
+        </ScrollView>
       </View>
     )
   }
