@@ -3,14 +3,14 @@ import request from '../server/request'
 
 const campaignStore = observable({
   // 分页获取campaignList数据
-  getCampaignList(params){
+  getCampaignList(params,callback){
     return request({
-      url:'',
+      url:'http://localhost:8081/getCampaignPage',
       data:params
     }).then(res=>{
       const {statusCode,data={},errMsg} = res
       if(statusCode === 200){
-        return res
+        return data
       }else{
         console.error(errMsg)
       }

@@ -11,5 +11,6 @@ export const getWeekTime = (time) =>{
     6:'星期六',
   }
 
-  return moment(time).format('YY-MM-DD') + ' '+ map[moment(time).day()]
+  time = typeof time !== 'number' ? Number(time) :time
+  return moment(time).format('MM-DD') + map[moment(time).day()]
 }

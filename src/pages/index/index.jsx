@@ -15,15 +15,7 @@ export default class Index extends Component {
 
   state = {
     userdata:{},
-    campainList:[{
-      name:'aaa',
-      beginTime:'1631696400000',
-      endTime:'1632380400000',
-      enterNumber:200,
-      description:'dssdad',
-      fee:'12',
-      cover:swiper1
-    }],
+    campainList:[],
     page:1,
     size:10,
   }
@@ -34,35 +26,27 @@ export default class Index extends Component {
 
   componentWillUnmount () { }
 
-  componentDidShow () { 
-    console.log(getCurrentInstance())
-    const query = Taro.createSelectorQuery()
-    console.log(query.select('.'+styles.swiper).boundingClientRect())
-    console.log(query.selectViewport().scrollOffset())
+  componentDidShow () {
+    this.getCampaignList()
    }
 
   componentDidHide () { }
 
-
   // 分页获取campaignList数据
-  getCampaignList(params){
+  getCampaignList(){
     const {page,size,campainList} = this.state
     const {campaignStore} = this.props;
     campaignStore.getCampaignList({
       page,size
-    }).then(res=>{
-      const {data=[{
-        name:'aaa',
-        beginTime:'1631696400000',
-        endTime:'1632380400000',
-        enterNumber:200,
-        description:'dssdad',
-        fee:'12',
-        cover:swiper1
-      }]} = res
-      this.setState({
-        campainList: page === 1 ? data.data : [...campainList,...data.data]
-      })
+    }).then((res={})=>{
+      const {errMsg='',success,data=[]} = res;
+      if(success){
+        this.setState({
+          campainList: page === 1 ? data : [...campainList,...data]
+        })
+      }else{
+        console.error(errMsg)
+      }
     })
   }
 
