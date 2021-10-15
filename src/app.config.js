@@ -2,7 +2,9 @@ export default {
   pages: [
     'pages/index/index',
     'pages/order/index',
-    'pages/user/index'
+    'pages/user/index',
+    'pages/campaign/index',
+    'pages/campaign/addCampaign',
   ],
   window: {
     backgroundTextStyle: 'light',

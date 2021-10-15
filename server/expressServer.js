@@ -22,6 +22,15 @@ var app = express();
 // 使用cookie中间件
 app.use(cookieParser());
 
+app.all('*', function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin','*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');  
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');  
+    res.setHeader('Cache-Control', 'max-age=20000'); 
+    // res.setHeader("Content-Type", "application/json;charset=utf-8"); 
+    next();
+});
+
 // 设置静态文件目录(可以更改),express 会在静态资源目录下查找文件
 // 相对路径也可以app.use(express.static('/static'));
 app.use(express.static(__dirname + '/static'));

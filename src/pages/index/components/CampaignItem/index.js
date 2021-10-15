@@ -18,8 +18,8 @@ export default class Index extends Component {
           <View>参与人数：{data.enterNumber}</View>
           <View>活动时间：{getWeekTime(data.beginTime)} 至 {getWeekTime(data.endTime)}</View>
         </View>
-        <Image src={`/static/images/data/${data.cover}`} />
-        <Text>{data.description}</Text>
+        <Image src={`http://localhost:8081/images/data/${data.cover}`} />
+        <Text className={styles.desc}>{data.description}</Text>
       </View>
     )
   }

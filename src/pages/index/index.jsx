@@ -66,7 +66,7 @@ export default class Index extends Component {
             <SwiperItem><Image src={swiper3} /></SwiperItem>
             <SwiperItem><Image src={swiper4} /></SwiperItem>
         </Swiper>
-        <ScrollView>
+        <ScrollView className={styles.contain}>
           {
             campainList.map(item=><CampaignItem data={item} />)
           }
