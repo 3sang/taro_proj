@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { View, Text } from '@tarojs/components'
-import styles from 'addCampaign.module.less'
+import styles from './addCampaign.module.less'
 
 export default class Index extends Component {
 

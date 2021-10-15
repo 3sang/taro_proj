@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { View, Text } from '@tarojs/components'
-import styles from './index.less'
+import styles from './index.module.less'
 
 export default class Index extends Component {
 
