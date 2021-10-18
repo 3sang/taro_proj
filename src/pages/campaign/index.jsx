@@ -1,18 +1,24 @@
+import { getCurrentInstance } from '@tarojs/taro'
 import { Component } from 'react'
 import { View, Text } from '@tarojs/components'
 import styles from './index.module.less'
 
 export default class Index extends Component {
 
-  componentWillMount () { }
+  state = {
+    id:'',
+  }
 
-  componentDidMount () { }
+  componentWillMount () {
+    const instance = getCurrentInstance();
+    this.setState({
+      id:instance.router.params.campaignId
+    })
+   }
 
-  componentWillUnmount () { }
+  getCampaignData = (id)=>{
 
-  componentDidShow () { }
-
-  componentDidHide () { }
+  }
 
   render () {
     return (
